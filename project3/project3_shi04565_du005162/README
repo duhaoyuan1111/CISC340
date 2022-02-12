@@ -1,0 +1,36 @@
+
+Using 'make' command to assemble the simulator.c
+
+simulator.c is a pipelined simulator that each instruction at least need 5 cycles to complete.
+
+It has five stages and five pipeline buffers:
+
+[IF stage] |IFID| [ID stage] |IDEX| [EX stage] |EXMEM| [MEM stage] |MEMWB| [WB stage] |WBEND|
+
+This simulator is using C code to implement its behavior.
+----------------------------------------------------------------------------------------------------
+For using these simulator, the command is:
+./simulator.sim -i ./benchMark/benchmark1.mc
+
+(-i is the Getopt option for reading a certain file)
+
+Files:
+benchMark sub-directory is a folder that has 15 test cases, each one has assembly code and machine code.
+overview_of_pipelined.pdf is a pdf that introduce how our pipelined simulator works.
+
+Test suite:
+1. Testing Load Stall: lw followed by add, lw regA == add regA == add regB
+2. Testing Load Stall: lw followed by nand, lw regA == nand regA == nand regB
+3. Testing Load Stall: lw followed by lw, lw regA == lw regB
+4. Testing Load Stall and Bypassing: lw followed by sw, lw regA == sw regB **Sometimes Bypassing happened from EXMEM or MEMWB or WBEND, as below
+5. Testing Load Stall and Bypassing: lw followed by sw, lw regA == sw regA
+6. Testing a couple of Load Stalls
+7. Testing Load Stall and flush: beq should trigger the flush and branch to sw
+8. Testing Load Stall and flush: beq should not trigger the flush
+9. Testing Bypassing: add followed by add, add regDest == add regA
+10. Testing Bypassing: nand followed by nand, nand regDest == nand regA
+11. Testing Load Stall and Bypassing: add followed by lw, add regDest == lw regA
+12. Testing Load Stall and Bypassing: add followed by sw, add regDest == sw regA
+13. Testing Load Stall and Bypassing: add followed by sw, add regDest == sw regB
+14. Testing Load Stall and Bypassing and flush
+15. Using project 1 professor's example to test a real case

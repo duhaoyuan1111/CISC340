@@ -1,0 +1,19 @@
+1. There are three files and one directory.
+2. assembler.c is the c language file.
+3. Makefile can translate the c code into executable file, please typing "make" in the console, and it will set up everything for you.
+	After typing "make", please typing "./assembler.asm -i ./tests/program.as"
+	P.S: The command above will print the answer to the console. If you want a file, please typing:
+	"./assembler.asm -i ./tests/program.as -o ./tests/program.mc"
+	Notice: If you use debug test case, it will print error in the console instead of outputting to the file.
+4. "tests" directory has ten .as files. Each file is a test case.
+5. program.as is the example copied from canvas.
+6. program2.as is another example which includes "nand" "sw" "jalr", make sure all instructions would work well.
+7. program3.as debugs if there are any labels more than 6 characters long.
+8. program4.as debugs if labels start with a number or a weird character.
+9. program5.as debugs if labels have weird characters.
+10. program6.as debugs if there are any undefined labels.
+11. program7.as debugs if there are any duplicate labels.
+12. program8.as debugs if the offset_fields that don't fit in 16 bits.
+13. program9.as and program10.as debug if there are any unrecognized opcodes(instructions).
+14. program11.as debugs if you are using instructions as a name of your label.
+15. Please feel free to modify the debugger, they should catch any errors mentioned in the PDF on canvas.

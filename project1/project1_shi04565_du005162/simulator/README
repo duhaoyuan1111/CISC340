@@ -1,0 +1,14 @@
+1. There are three files and one directory.
+2. simulator.c is the c language file.
+3. Makefile can translate the c code into executable file, please typing "make" in the console, and it will set up everything for you.
+	After typing "make", please typing "./simulator.sim -i ./tests/program.mc"
+4. "tests" directory has ten .mc files. Each file is a test case.
+5. program.mc is the example copied from canvas.
+6. program2.mc is another example which includes "nand" "sw" "jalr", make sure all instructions would work well.
+7. program3.mc debugs if sw is going to store something above the 'halt' instruction in memory address.
+8. program4.mc debugs if jalr is going to jump beyond the 'halt' instruction in memory address.
+9. program5.mc debugs if $reg0 is going to be changed.
+10. program6.mc debugs if there is a 'halt' instruction or not.
+11. program7.mc debugs if R-type or J-type or O-type unused bits are not all zeros. (Don't have related .as file, since it's a number fault)
+12. program8.mc debugs if common unused bits(31-25) are not all zeros. (Don't have related .as file, since it's a number fault)
+13. Please feel free to modify the debugger, they should catch any errors mentioned in the PDF on canvas.
